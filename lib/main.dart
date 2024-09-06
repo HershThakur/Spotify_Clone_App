@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/core/config/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Text("Home"),
+      theme: AppTheme.lightTheme,
+      home: Container(),
     );
   }
 }

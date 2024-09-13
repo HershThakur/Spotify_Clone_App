@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/config/assets/app_images.dart';
 import 'package:spotify_clone/core/config/assets/app_vectors.dart';
+import 'package:spotify_clone/view/authentication/pages/auth_page.dart';
 import 'package:spotify_clone/view/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseModePage extends StatelessWidget {
@@ -139,11 +140,11 @@ class ChooseModePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const ChooseModePage(),
+                        builder: (BuildContext context) => const AuthPage(),
                       ),
                     );
                   },
-                  title: "Get Started",
+                  title: "Continue",
                 )
               ],
             ),

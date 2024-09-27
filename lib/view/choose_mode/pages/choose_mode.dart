@@ -39,7 +39,6 @@ class ChooseModePage extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   child: SvgPicture.asset(
                     AppVectors.logo,
-                    width: 200,
                   ),
                 ),
                 const Spacer(),

@@ -15,8 +15,43 @@ class SignUpPage extends StatelessWidget {
           height: 40,
         ),
       ),
-      body: const Column(
-        children: [],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 50,
+          horizontal: 30,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _registerText(),
+            const SizedBox(height: 50),
+            _fullNameTextField(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _registerText() {
+    return const Text(
+      "Register",
+      style: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.bold,
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
+
+  Widget _fullNameTextField() {
+    return TextField(
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.transparent,
+        contentPadding: const EdgeInsets.all(30),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
       ),
     );
   }

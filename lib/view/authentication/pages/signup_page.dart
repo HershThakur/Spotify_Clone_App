@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_clone/common/widgets/appbar/app_bar.dart';
+import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/config/assets/app_vectors.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -9,6 +10,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: _signinText(context),
       appBar: BasicAppBar(
         title: SvgPicture.asset(
           AppVectors.logo,
@@ -25,7 +27,13 @@ class SignUpPage extends StatelessWidget {
           children: [
             _registerText(),
             const SizedBox(height: 50),
-            _fullNameTextField(),
+            _fullNameTextField(context),
+            const SizedBox(height: 50),
+            _emailTextField(context),
+            const SizedBox(height: 50),
+            _passwordTextField(context),
+            const SizedBox(height: 50),
+            BasicAppButton(onPressed: () {}, title: "Create Account"),
           ],
         ),
       ),
@@ -43,16 +51,48 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
-  Widget _fullNameTextField() {
+  Widget _fullNameTextField(BuildContext context) {
     return TextField(
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.transparent,
-        contentPadding: const EdgeInsets.all(30),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
+      decoration: const InputDecoration(
+        hintText: "Full Name",
+      ).applyDefaults(
+        Theme.of(context).inputDecorationTheme,
       ),
+    );
+  }
+
+  Widget _emailTextField(BuildContext context) {
+    return TextField(
+      decoration: const InputDecoration(
+        hintText: "Email",
+      ).applyDefaults(
+        Theme.of(context).inputDecorationTheme,
+      ),
+    );
+  }
+
+  Widget _passwordTextField(BuildContext context) {
+    return TextField(
+      decoration: const InputDecoration(
+        hintText: "Password",
+      ).applyDefaults(
+        Theme.of(context).inputDecorationTheme,
+      ),
+    );
+  }
+
+  Widget _signinText(BuildContext context) {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          "Do you have an account? ",
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 14,
+          ),
+        ),
+      ],
     );
   }
 }

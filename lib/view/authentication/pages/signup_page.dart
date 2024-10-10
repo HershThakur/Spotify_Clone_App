@@ -82,17 +82,26 @@ class SignUpPage extends StatelessWidget {
   }
 
   Widget _signinText(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          "Do you have an account? ",
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 14,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 30),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            "Do you have an account?",
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+            ),
           ),
-        ),
-      ],
+          TextButton(
+            onPressed: () {
+              print("Replace later");
+            },
+            child: const Text("Sign In"),
+          )
+        ],
+      ),
     );
   }
 }

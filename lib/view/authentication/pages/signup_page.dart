@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_clone/common/widgets/appbar/app_bar.dart';
 import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/config/assets/app_vectors.dart';
+import 'package:spotify_clone/view/authentication/pages/signin_page.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -96,7 +97,12 @@ class SignUpPage extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              print("Replace later");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const SignInPage(),
+                ),
+              );
             },
             child: const Text("Sign In"),
           )

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_clone/common/widgets/appbar/app_bar.dart';
 import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/config/assets/app_vectors.dart';
+import 'package:spotify_clone/view/authentication/pages/signup_page.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -10,7 +11,7 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _signinText(context),
+      bottomNavigationBar: _signupText(context),
       appBar: BasicAppBar(
         title: SvgPicture.asset(
           AppVectors.logo,
@@ -27,13 +28,11 @@ class SignInPage extends StatelessWidget {
           children: [
             _registerText(),
             const SizedBox(height: 50),
-            _fullNameTextField(context),
-            const SizedBox(height: 50),
-            _emailTextField(context),
+            _usernameOrEmailTextField(context),
             const SizedBox(height: 50),
             _passwordTextField(context),
             const SizedBox(height: 50),
-            BasicAppButton(onPressed: () {}, title: "Create Account"),
+            BasicAppButton(onPressed: () {}, title: "Sign In"),
           ],
         ),
       ),
@@ -42,7 +41,7 @@ class SignInPage extends StatelessWidget {
 
   Widget _registerText() {
     return const Text(
-      "Register",
+      "Sign In",
       style: TextStyle(
         fontSize: 25,
         fontWeight: FontWeight.bold,
@@ -51,10 +50,10 @@ class SignInPage extends StatelessWidget {
     );
   }
 
-  Widget _fullNameTextField(BuildContext context) {
+  Widget _usernameOrEmailTextField(BuildContext context) {
     return TextField(
       decoration: const InputDecoration(
-        hintText: "Full Name",
+        hintText: "Enter Username Or Email",
       ).applyDefaults(
         Theme.of(context).inputDecorationTheme,
       ),
@@ -81,14 +80,14 @@ class SignInPage extends StatelessWidget {
     );
   }
 
-  Widget _signinText(BuildContext context) {
+  Widget _signupText(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const Text(
-            "Do you have an account?",
+            "Not a member? ",
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 14,
@@ -96,9 +95,14 @@ class SignInPage extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              print("Replace later");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const SignUpPage(),
+                ),
+              );
             },
-            child: const Text("Sign In"),
+            child: const Text("Register Now"),
           )
         ],
       ),

@@ -3,14 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:spotify_clone/data/models/auth/create_user.dart';
 
 abstract class AuthFirebaseService {
-  Future<void> signUp(CreateUser createuser);
-  Future<void> signIn();
+  Future<Either> signUp(CreateUser createUser);
+  Future<Either> signIn();
 }
 
 class AuthFirebaseServiceImp extends AuthFirebaseService {
   @override
   Future<Either> signIn() {
-    // TODO: implement signIn
     throw UnimplementedError();
   }
 
@@ -22,7 +21,7 @@ class AuthFirebaseServiceImp extends AuthFirebaseService {
         password: createUser.password,
       );
 
-      return Right('Sign Up was successful');
+      return const Right('Sign Up was successful');
     } on FirebaseAuthException catch (e) {
       String message = "";
 
